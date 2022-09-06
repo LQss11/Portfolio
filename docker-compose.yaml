@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  web-app:
+    #build: .
+    image: nginx:alpine
+    restart: always
+    container_name: front    
+    ports:
+      - 7777:80 
+    volumes:
+      - ./PortFolio_Website:/usr/share/nginx/html
