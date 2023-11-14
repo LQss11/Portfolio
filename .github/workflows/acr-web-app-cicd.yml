@@ -23,7 +23,7 @@ jobs:
 
     - run: |
         docker pull nginx:alpine
-        docker tag nginx:alpine  ${{ secrets.REGISTRY_LOGIN }}/nginx:alpine 
+        docker tag nginx:alpine  ${{ secrets.REGISTRY_LOGIN }}/nginx:ok 
         docker push ${{ secrets.REGISTRY_LOGIN }}/nginx:ok
 
     - uses: azure/webapps-deploy@v2
