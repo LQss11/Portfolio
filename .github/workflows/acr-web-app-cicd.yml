@@ -22,7 +22,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - run: |
-        docker build ../../ -t ${{ secrets.REGISTRY_LOGIN }}/portfolio:latest
+        docker build . -t ${{ secrets.REGISTRY_LOGIN }}/portfolio:latest
         docker push ${{ secrets.REGISTRY_LOGIN }}/portfolio:latest 
 
     - uses: azure/webapps-deploy@v2
