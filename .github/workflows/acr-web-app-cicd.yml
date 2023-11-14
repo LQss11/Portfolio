@@ -29,4 +29,4 @@ jobs:
       with:
         app-name: 'salem-affes'
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-        images: '${{ secrets.REGISTRY_LOGIN }}/portfolio:latest'
+        images: 'nginx:alpine'
