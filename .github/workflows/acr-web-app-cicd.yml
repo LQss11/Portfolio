@@ -9,12 +9,12 @@ on:
 
 jobs:
   build-and-deploy:
+    env: "dev"
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
     - name: 'Checkout Github Action'
       uses: actions/checkout@master
-
     - uses: azure/docker-login@v1
       with:
         login-server: lqss11.azurecr.io
