@@ -17,16 +17,16 @@ jobs:
       uses: actions/checkout@master
     - uses: azure/docker-login@v1
       with:
-        login-server: lqss11.azurecr.io
+        login-server: ${{ secrets.REGISTRY_LOGIN }}
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - run: |
-        docker build . -t contoso.azurecr.io/portfolio:${{ github.sha }}
-        docker push lqss11.azurecr.io/portfolio:${{ github.sha }} 
+        docker build . -t ${{ secrets.REGISTRY_LOGIN }}/portfolio:${{ github.sha }}
+        docker push ${{ secrets.REGISTRY_LOGIN }}/portfolio:${{ github.sha }} 
 
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'salem-affes'
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-        images: 'lqss11.azurecr.io/portfolio:${{ github.sha }}'
+        images: '${{ secrets.REGISTRY_LOGIN }}/portfolio:${{ github.sha }}'
