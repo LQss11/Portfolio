@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-and-deploy:
-    env: "dev"
+    environment: dev 
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
