@@ -22,14 +22,12 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
     - run: |
-        # docker build . -t ${{ secrets.REGISTRY_LOGIN }}/portfolio:latest
-        # docker push ${{ secrets.REGISTRY_LOGIN }}/portfolio:latest 
         docker pull nginx:alpine
         docker tag nginx:alpine  ${{ secrets.REGISTRY_LOGIN }}/nginx:alpine 
-        docker push ${{ secrets.REGISTRY_LOGIN }}/nginx:alpine
+        docker push ${{ secrets.REGISTRY_LOGIN }}/nginx:ok
 
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'salem-affes'
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-        images: ${{ secrets.REGISTRY_LOGIN }}/nginx:alpine
+        images: ${{ secrets.REGISTRY_LOGIN }}/nginx:ok
