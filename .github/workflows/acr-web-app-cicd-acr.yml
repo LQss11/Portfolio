@@ -1,11 +1,12 @@
 # https://github.com/marketplace/actions/azure-webapp#github-action-for-deploying-to-azure-web-app
-name: Azure webapp CI CD
+name: Azure webapp CI CD Azire Container Registry
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
 
 jobs:
   build-and-deploy:
